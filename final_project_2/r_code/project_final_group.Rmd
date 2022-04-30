@@ -1,0 +1,82 @@
+---
+title: "Understanding Hotel Cancellations Business Value Data"
+output: html_notebook
+---
+
+Antonio, Nuno, Ana de Almeida, and Luis Nunes. “Hotel Booking Demand Datasets.” Data in Brief 22 (February 1, 2019): 41–49. https://doi.org/10.1016/j.dib.2018.11.126.
+
+
+
+
+##Data Description
+
+
+
+
+
+```{r, include=FALSE}
+##library and depenances
+# https://bookdown.org/yihui/rmarkdown-cookbook/hide-all.html
+library(ggplot2)
+library(dplyr)
+library(stargazer)
+# stargazer is a html table program | https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf
+#library(Zelig)
+# stats lib
+library(tidyverse)
+# tidy verse cheat sheet -> https://github.com/rstudio/cheatsheets/blob/main/data-import.pdf
+library(wesanderson)
+library(ggpubr)
+library(tidymodels)
+library(corrplot)
+library(gridExtra)
+library(kableExtra)
+library(survival)
+library(sm)
+library(zoo)
+library(GGally)
+library(RColorBrewer)
+library(vioplot)
+library(olsrr) #https://cran.r-project.org/web/packages/olsrr/index.html
+library(glmnet) #for lasso +ridge regression
+library(caret)
+library(pls) #PCR
+library(cowplot) #extra nice for side by side plots
+
+```
+
+
+load data
+```{r}
+setwd("/Volumes/GoogleDrive-110402388576692861672/Shared drives/MIS 761 Group Project/r_code")
+hotel  <- read.csv("hotel_cleaned_final.csv",header=TRUE, sep=",")
+
+
+
+
+
+```
+
+
+```{r}
+summary(hotel)
+
+## incorrect incoming information Weight and Height r in lbs/ and inch
+```
+
+
+```{r}
+# boxplot
+
+x1 <- hotel$hotel   
+x2 <- hotel$lead_time   
+
+
+
+vioplot(x2)
+boxplot(x2)
+
+```
+
+
+
